@@ -6,10 +6,10 @@ class Graph:
         self.edges = defaultdict(list)
         self.distances = {}
     
-    def addNode(self,value):
+    def add_node(self,value):
         self.nodes.add(value)
     
-    def addEdge(self, fromNode, toNode, distance):
+    def add_edge(self, fromNode, toNode, distance):
         self.edges[fromNode].append(toNode)
         self.distances[(fromNode, toNode)] = distance
 
@@ -43,21 +43,21 @@ def dijkstra(graph, initial):
     return visited, path
 
 customGraph = Graph()
-customGraph.addNode("A")
-customGraph.addNode("B")
-customGraph.addNode("C")
-customGraph.addNode("D")
-customGraph.addNode("E")
-customGraph.addNode("F")
-customGraph.addNode("G")
-customGraph.addEdge("A", "B", 2)
-customGraph.addEdge("A", "C", 5)
-customGraph.addEdge("B", "C", 6)
-customGraph.addEdge("B", "D", 1)
-customGraph.addEdge("B", "E", 3)
-customGraph.addEdge("C", "F", 8)
-customGraph.addEdge("D", "E", 4)
-customGraph.addEdge("E", "G", 9)
-customGraph.addEdge("F", "G", 7)
+customGraph.add_node("A")
+customGraph.add_node("B")
+customGraph.add_node("C")
+customGraph.add_node("D")
+customGraph.add_node("E")
+customGraph.add_node("F")
+customGraph.add_node("G")
+customGraph.add_edge("A", "B", 2)
+customGraph.add_edge("A", "C", 5)
+customGraph.add_edge("B", "C", 6)
+customGraph.add_edge("B", "D", 1)
+customGraph.add_edge("B", "E", 3)
+customGraph.add_edge("C", "F", 8)
+customGraph.add_edge("D", "E", 4)
+customGraph.add_edge("E", "G", 9)
+customGraph.add_edge("F", "G", 7)
 
 print(dijkstra(customGraph, "A"))
