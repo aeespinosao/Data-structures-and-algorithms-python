@@ -13,3 +13,4 @@ def min_operations(s1: str, s2: str, index1: int, index2: int) -> int:
     return min(delete_sub, insert_sub, replace_sub)
 
 print(min_operations('table', 'tbrles', 0, 0))
+print(min_operations('table', 'tbrlest', 0, 0))
