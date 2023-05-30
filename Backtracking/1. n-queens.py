@@ -2,8 +2,9 @@ class NQueens:
     
     def __init__(self, n) -> None:
         self.n = n
-        self.board = [[0]*n]*n
-    
+        #self.board = [[0]*n]*n why does not work?
+        self.board = [[0 for i in range(n)] for j in range(n)]
+
     def print_queens(self):
         for row in self.board:
             for column in row:
@@ -36,16 +37,16 @@ class NQueens:
             
         return True
     
-    def solve(self, row_index=0):
-        if row_index == self.n:
+    def solve(self, col_index=0):
+        if col_index == self.n:
             return True
         
-        for col_index in range(self.n):
+        for row_index in range(self.n):
             if self.is_place_safe(row_index, col_index):
                 self.board[row_index][col_index] = 1
-                if self.solve(row_index+1):
+                if self.solve(col_index+1):
                     return True
-            self.board[row_index][col_index] = 0
+                self.board[row_index][col_index] = 0
             
         return False
     
