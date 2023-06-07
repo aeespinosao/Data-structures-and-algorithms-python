@@ -5,20 +5,22 @@ class Node():
         self.left = left
         self.right = right
       
-def first_common_ancestor(node1, node2):
-  search1, search2 = node1, node2
-  ancestors1, ancestors2 = [], []
-  while search1 or search2:
-    if search1:
-      if search1 in ancestors2:
-        return search1
-      ancestors1.append(search1)
-      search1 = search1.parent
-      print(ancestors1)
-    if search2:
-      if search2 in ancestors1:
-        return search2
-      ancestors2.append(search2)
-      search2 = search2.parent
-      print(ancestors2)
-  return None
+def find_node_in_tree(target, root):
+    if not root:
+        return False
+    if target==root:
+        return True
+    
+    return find_node_in_tree(target, root.left) or find_node_in_tree(target, root.right)
+
+def findFirstCommonAncestor(n1, n2, root):
+    n1_left = find_node_in_tree(n1, root.left)
+    n2_left = find_node_in_tree(n2, root.left)
+    
+    if n1_left ^ n2_left:
+        return root
+    
+    if n1_left:
+        return findFirstCommonAncestor(n1, n2, root.left)
+    
+    return findFirstCommonAncestor(n1, n2, root.right)
