@@ -9,7 +9,6 @@ def createGraph(projects, dependencies):
 project = ['a', 'b', 'c', 'd', 'e', 'f']
 dependencies = [('a','d'), ('f','b'), ('b','d'), ('f','a'), ('d','c')]
 
-
 def projects_dependents(graph):
     dependents = [dep for dep_list in list(graph.values()) for dep in dep_list]
     return set(dependents)
